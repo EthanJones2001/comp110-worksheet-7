@@ -28,7 +28,7 @@ namespace comp110_worksheet_7
 		{
             string[] files;
             float fileSize;
-            files = Directory.GetFiles();
+            files = directory.GetFiles();
 
             for (int i = 0; i < files.Length; i++)
             {
@@ -69,19 +69,40 @@ namespace comp110_worksheet_7
 		// Get the path and size (in bytes) of the smallest file below the given directory
 		public static Tuple<string, long> GetSmallestFile(string directory)
 		{
-			throw new NotImplementedException();
-		}
+            long[] fileLength = directory.ToArray();
+            long smallestFile = fileLength.Min();
+            long byteSize = fileLength.Sum();
+
+            Console.WriteLine("Smallest file in bytes", byteSize);
+            Console.WriteLine("Smallest file ", smallestFile);
+        }
 
 		// Get the path and size (in bytes) of the largest file below the given directory
 		public static Tuple<string, long> GetLargestFile(string directory)
 		{
-			throw new NotImplementedException();
-		}
+            long[] fileLength = directory.ToArray();
+            long LargestFile = fileLength.Min();
+            long byteSize = fileLength.Sum();
+
+            Console.WriteLine("Largest file in bytes", byteSize);
+            Console.WriteLine("Largest file ", LargestFile);
+        }
 
 		// Get all files whose size is equal to the given value (in bytes) below the given directory
 		public static IEnumerable<string> GetFilesOfSize(string directory, long size)
 		{
-			throw new NotImplementedException();
+
+            long[] fileLength = directory.ToArray();
+                       
+            for (int i = 0; i < fileLength.Length; i++)
+            {
+                if(fileLength[i] == size)
+                {
+                    Console.WriteLine("Getting file that equals given value ", fileLength[i]);
+                }
+                
+            }
+  
 		}
 	}
 }
